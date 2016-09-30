@@ -27,8 +27,8 @@
         .font-size {
             font-size: 10pt;
         }
-        .background-color {
-            background-color: gray;
+        .background-gray {
+            background-color: blue;
         }
         
         .container > * {
@@ -38,41 +38,45 @@
         .width {
             width: 30%;
         }
+        .background-orange {
+            background-color: orange;
+        }
     </style>
 </head>
+    <div class="background-orange">
+        <body>
+            <ul id="navbar">
+                <li><a href="index.html"> About Me </a></li>
+                <li><a href="hardware.html"> Hardware </a></li>
+                <li><a href="calc.html"> Calculator </a></li>
+                <li><a href="todo.html"> Todo List </a></li>
+                <li><a href="vind.html"> Vindinium </a></li>
+                <li><a href="bigproject.html"> Big Project </a></li>
+            </ul>
+        </body>
 
-<body>
-    <ul id="navbar">
-        <li><a href="index.html"> About Me </a></li>
-        <li><a href="hardware.html"> Hardware </a></li>
-        <li><a href="calc.html"> Calculator </a></li>
-        <li><a href="todo.html"> Todo List </a></li>
-        <li><a href="vind.html"> Vindinium </a></li>
-        <li><a href="bigproject.html"> Big Project </a></li>
-    </ul>
-</body>
+        <div class="container">
+            <div>
+                <img class="smaller-image thin-black-border" src="pictures/pictureofme.jpg" alt="My older brother and I"></img>
+            </div>
 
-<div class="container">
-<div>
-    <img class="smaller-image thin-black-border" src="pictures/pictureofme.jpg" alt="My older brother and I"></img>
-</div>
-
-<!--main bio-->
-<div class="thin-black-border font-family background-color width font-size">
-    <p class="center">My name is Matthew Lacayo, here a few quick facts about my self</p>
-        <ul>
-            <li>I was born on September 4th in 1998</li>
-            <li>I'm in my senior year of high school at Summit Prep</li>
-            <li>I have two older brothers; Andrew (21), and Marc(20)</li>
-            <li>I have three dogs; Lucy, Buddy, and Bella</li>
-        </ul>
-    <p class="center"> While I'm not at school I either...</p>
-        <ul>
-            <li>Hang out with friends and exercise/relax</li>
-            <li>Watch movies</li>
-            <li>Or listen to music</li>
-        </ul>
-</div>
+            <!--main bio-->
+            <div class="thin-black-border font-family background-gray width font-size">
+                <p class="center">My name is Matthew Lacayo, here a few quick facts about my self</p>
+                <ul>
+                    <li>I was born on September 4th in 1998</li>
+                    <li>I'm in my senior year of high school at Summit Prep</li>
+                    <li>I have two older brothers; Andrew (21), and Marc(20)</li>
+                    <li>I have three dogs; Lucy, Buddy, and Bella</li>
+                </ul>
+                <p class="center"> While I'm not at school I either...</p>
+                <ul>
+                    <li>Hang out with friends and exercise/relax</li>
+                    <li>Watch movies</li>
+                    <li>Or listen to music</li>
+                </ul>
+            </div>
+        </div>
 </div>
 <!-- command lines for updating site
 git add -A

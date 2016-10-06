@@ -1,21 +1,68 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Me</title>
-    <link rel="stylesheet" href="navbar.css" type="text/css" />
-    <style>
-        .smaller-image {
-            width: 200px;
-            height: 200px;
-        }
-        .center {
-            text-align:center;
-        }
-    </style>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <title>About Me</title>
+        <link rel="stylesheet" href="navbar.css" type="text/css" />
+        <style>
+            .cpu-image {
+                width: 290px;
+                height: 200px;
+                position: fixed;
+                top:100px;
+                left:5%;
+            }
+            .cpu-text {
+                line-height: 20px;
+                margin-top: 325px;
+                position: fixed;
+                width: 300px;
+                max-width: 500000;
+                left: 4.5%;
+            }
+            .ram-image {
+                width: 290px;
+                height: 200px;
+                position: fixed;
+                top:100px;
+                left:35%;
+            }
+            .ram-text{
+                line-height: 20px;
+                margin-top: 325px;
+                position: fixed;
+                width: 300px;
+                max-width: 500000;
+                left: 34.5%;
+            }
+            .mobo-image {
+                width: 290px;
+                height: 200px;
+                position: fixed;
+                top:100px;
+                right:5%;
+            }
+            .mobo-text {
+                line-height: 20px;
+                margin-top: 325px;
+                position: fixed;
+                width: 300px;
+                max-width: 500000;
+                right: 4.5%;
+            }
+            .black-border {
+                border-color: black;
+                border-width: 3px;
+                border-style: solid;
+            }
+            .center {
+                text-align: center;
+            }
+            
+        </style>
+    </head>
 
-<body>
+<body
     <ul id="navbar">
         <li><a href="index.html"> About Me </a></li>
         <li><a href="hardware.html"> Hardware </a></li>
@@ -25,10 +72,34 @@
         <li><a href="bigproject.html"> Big Project </a></li>
     </ul>
 </body>
-<div class="center">
-    <p>This page is under construction</p>
-</div>
-<div class="center">
-    <img class="smaller-image"src="http://www.lakewoodcityschools.org/userfiles/2312/construction.jpg"></img>
-    </div>
+
+    <img class="cpu-image black-border" src="pictures/intel-i7.jpg"/>
+    
+        <div class="cpu-text black-border">
+            
+            <h3>CPU</h3>
+            
+                <p>The central processing unit, or CPU, is like the brain of the computer. It performs calculations when the user performs basic operations on the computer. Depending on the brand and/or specifications of the CPU the computer can perform actions slower or faster.</p>
+                
+        </div>
+        
+    <img class="ram-image black-border" src="pictures/ram.jpg"/>
+    
+        <div class="ram-text black-border">
+            
+            <h3> RAM </h3>
+            
+                <p> Random access memory, or RAM, is where memory that the CPU is using in the moment is stored. Once the computer is shut off the RAM is wiped clean. One way to think of the ram is to think of it as the short term memory of the computer. </p>
+                
+        </div>
+
+    <img class="mobo-image black-border" src="pictures/mobo.jpg"/>
+
+        <div class="mobo-text black-border">
+            
+            <h3> Motherboard </h3>
+            
+                <p> The motherboard is like the frame of a house before insulation, flooring, walling, electrical, and plumbing have been put in. While the motherboard does not affect the performance of a computer, it can limit the potential power and capability of a machine. </p>
+            
+        </div>
 </html>

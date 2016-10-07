@@ -1,5 +1,7 @@
 #navbar {
-   text-align:center;
+    text-align: center;
+    margin-left: 2px;
+    margin-right: 2px;
 }
 
 #navbar li {
@@ -7,6 +9,5 @@
 }
 
 #navbar a {
-
 }
 

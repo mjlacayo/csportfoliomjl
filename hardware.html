@@ -2,20 +2,20 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>About Me</title>
+        <title>Hardware Page</title>
         <link rel="stylesheet" href="navbar.css" type="text/css" />
         <style>
             .cpu-image {
                 width: 290px;
                 height: 200px;
-                position: fixed;
+                position: absolute;
                 top:100px;
                 left:5%;
             }
             .cpu-text {
                 line-height: 20px;
-                margin-top: 325px;
-                position: fixed;
+                margin-top: 260px;
+                position: absolute;
                 width: 300px;
                 max-width: 500000;
                 left: 4.5%;
@@ -23,32 +23,77 @@
             .ram-image {
                 width: 290px;
                 height: 200px;
-                position: fixed;
+                position: absolute;
                 top:100px;
-                left:35%;
+                left:38%;
             }
             .ram-text{
                 line-height: 20px;
-                margin-top: 325px;
-                position: fixed;
+                margin-top: 260px;
+                position: absolute;
                 width: 300px;
                 max-width: 500000;
-                left: 34.5%;
+                left: 37.5%;
             }
             .mobo-image {
                 width: 290px;
                 height: 200px;
-                position: fixed;
+                position: absolute;
                 top:100px;
                 right:5%;
             }
             .mobo-text {
                 line-height: 20px;
-                margin-top: 325px;
-                position: fixed;
+                margin-top: 260px;
+                position: absolute;
                 width: 300px;
                 max-width: 500000;
                 right: 4.5%;
+            }
+            .hdd-image {
+                width: 290px;
+                height: 200px;
+                position: absolute;
+                top:660px;
+                left:5%;
+            }
+            .hdd-text {
+                line-height: 20px;
+                margin-top: 825px;
+                position: absolute;
+                width: 300px;
+                max-width: 500000;
+                left: 4.5%;  
+            }
+            .bus-image {
+                width: 290px;
+                height: 200px;
+                position: absolute;
+                top:660px;
+                right:5%; 
+            }
+            .bus-text {
+                line-height: 20px;
+                margin-top: 825px;
+                position: absolute;
+                width: 300px;
+                max-width: 500000;
+                right: 4.5%;
+            }
+            .peripheral-image {
+                width: 290px;
+                height: 200px;
+                position: absolute;
+                top:660px;
+                left:38%;  
+            }
+            .peripheral-text {
+                line-height: 20px;
+                margin-top: 825px;
+                position: absolute;
+                width: 300px;
+                max-width: 500000;
+                left: 37.5%;
             }
             .black-border {
                 border-color: black;
@@ -58,48 +103,83 @@
             .center {
                 text-align: center;
             }
-            
+            .white-background {
+                background-color: white;
+            }
         </style>
     </head>
 
-<body
+<body background="pictures/googledata.jpg" style="width: 1280px;">
     <ul id="navbar">
-        <li><a href="index.html"> About Me </a></li>
-        <li><a href="hardware.html"> Hardware </a></li>
-        <li><a href="calc.html"> Calculator </a></li>
-        <li><a href="todo.html"> Todo List </a></li>
-        <li><a href="vind.html"> Vindinium </a></li>
-        <li><a href="bigproject.html"> Big Project </a></li>
+        <li class="black-border white-background"><a href="home.html"><strong>Home</strong></a></li>
+        <li class="black-border white-background"><a href="index.html"><strong>About Me</strong> </a></li>
+        <li class="black-border white-background"><a href="hardware.html"><strong>Hardware</strong></a></li>
+        <li class="black-border white-background"><a href="howtopage.html"><strong>How To</strong></a></li>
+        <li class="black-border white-background"><a href="calc.html"><strong>Calculator</strong></a></li>
+        <li class="black-border white-background"><a href="todo.html"><strong>Todo List</strong></a></li>
+        <li class="black-border white-background"><a href="vind.html"><strong>Vindinium</strong></a></li>
+        <li class="black-border white-background"><a href="bigproject.html"><strong>Big Project</strong></a></li>
     </ul>
 </body>
 
     <img class="cpu-image black-border" src="pictures/intel-i7.jpg"/>
     
-        <div class="cpu-text black-border">
+        <div class="cpu-text black-border white-background">
             
-            <h3>CPU</h3>
+            <h3 class="center">CPU</h3>
             
-                <p>The central processing unit, or CPU, is like the brain of the computer. It performs calculations when the user performs basic operations on the computer. Depending on the brand and/or specifications of the CPU the computer can perform actions slower or faster.</p>
+                <p class="center">The central processing unit, or CPU, is like the brain of the computer. It performs calculations when the user performs basic operations on the computer. Depending on the brand and/or specifications of the CPU the computer can perform actions slower or faster.</p>
                 
         </div>
         
     <img class="ram-image black-border" src="pictures/ram.jpg"/>
     
-        <div class="ram-text black-border">
+        <div class="ram-text black-border white-background">
             
-            <h3> RAM </h3>
+            <h3 class="center"> RAM </h3>
             
-                <p> Random access memory, or RAM, is where memory that the CPU is using in the moment is stored. Once the computer is shut off the RAM is wiped clean. One way to think of the ram is to think of it as the short term memory of the computer. </p>
+                <p class="center"> Random access memory, or RAM, is where memory that the CPU is using in the moment is stored. Once the computer is shut off the RAM is wiped clean. One way to think of the ram is as the short term memory of the computer. </p>
                 
         </div>
 
     <img class="mobo-image black-border" src="pictures/mobo.jpg"/>
 
-        <div class="mobo-text black-border">
+        <div class="mobo-text black-border white-background">
             
-            <h3> Motherboard </h3>
+            <h3 class="center"> Motherboard </h3>
             
-                <p> The motherboard is like the frame of a house before insulation, flooring, walling, electrical, and plumbing have been put in. While the motherboard does not affect the performance of a computer, it can limit the potential power and capability of a machine. </p>
+                <p class="center"> The motherboard is where all the components of a computer meet and work together to make the computer work properly. While the motherboard does not affect the performance of a computer, it can limit the potential power and capability of a machine. </p>
             
         </div>
+
+    <img class="hdd-image black-border" src="pictures/hdd.jpg"/>
+        
+        <div class="hdd-text black-border white-background">
+            
+            <h3 class="center"> Hard Drive </h3>
+            
+                <p class="center"> The hard drive is similar to RAM in the sense that it stores data, however it is more like long term memory and not short term. People most comonly use hard drives for mass storage of documents, pictures/images, and applications. Hard drives come in a wide range of data capacity from 100 gigabytes to 4 terabytes.</p>
+                
+        </div>
+        
+    <img class="peripheral-image black-border" src="pictures/peripherals.jpg"/>
+    
+        <div class="peripheral-text black-border white-background">
+        
+            <h3 class="center"> Peripherals (Mouse, Keyboard, and Monitor)</h3>
+            
+                <p class="center"> For most computers to be used they need to be accompanied by things called peripherals. The three major peripherals are the mouse, keyboard, and monitor. The monitor is what displays the computer screen, the mouse is how you move your cursor across the screen, and the keyboard is what allows you to input text and commands into the computer.</p>
+        
+        </div>
+        
+    <img class= "bus-image black-border" src="pictures/bus.jpg"/>
+    
+        <div class="bus-text black-border white-background">
+            
+            <h3 class="center"> BUS </h3>
+            
+                <p class="center"> Although the image above may cause BUSes to seem confusing, they are actually quite simple. The BUS is essentially what links all the internal components to the motherboard.</p>
+            
+        </div>
+            
 </html>

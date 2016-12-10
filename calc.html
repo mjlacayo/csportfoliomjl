@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Calculator</title>
+    <link rel="stylesheet" href="navbar.css" type="text/css" />
+    
+    <style>
+    .black-border {
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
+        padding: 2px;
+        }
+        
+    .white-background {
+        background-color: white;
+        }
+    
+    .padding {
+        padding: 10px;
+    }
+    
+    .inline {
+        display: inline-block;
+    }
+    </style>
+    
+</head>
+
+<body background="pictures/russel.jpg">
+    
+    <script src="calc.js"></script>
+    
+    <ul id="navbar">
+                <li class="black-border white-background"><a href="home.html"><strong>Home</strong></a></li>
+                <li class="black-border white-background"><a href="index.html"><strong>About Me</strong> </a></li>
+                <li class="black-border white-background"><a href="hardware.html"><strong>Hardware</strong></a></li>
+                <li class="black-border white-background"><a href="howtopage.html"><strong>How To</strong></a></li>
+                <li class="black-border white-background"><a href="calc.html"><strong>Calculator</strong></a></li>
+                <li class="black-border white-background"><a href="todo.html"><strong>Todo List</strong></a></li>
+                <li class="black-border white-background"><a href="vind.html"><strong>Vindinium</strong></a></li>
+                <li class="black-border white-background"><a href="bigproject.html"><strong>Big Project</strong></a></li>
+    </ul>
+    
+    <p>WILL EXPLAIN HOW TO USE CALCULATOR</p>
+    
+        
+            <input id="num1">
+                <select id="selector">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">x</option>
+                <option value="/">/</option>
+                <option value="^">^</option>
+                <option value="square root">√</option>
+            </select>
+        
+            <input id="num2">
+            
+        
+        <button id="solve">solve</button>
+    
+        <div id="display"> </div>
+    <script src="calc.js"></script>
+    
+</body>
+</html>

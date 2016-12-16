@@ -1,25 +1,25 @@
-#navbar {
+#home {
     text-align: left;
     background-color:black;
     
 
 }
 
-#navbar li {
+#home li {
     display: inline-block;
     padding: 10px;
     
 
 }
 
-#navbar a:link, a:visited{
+#home a:link, a:visited{
     color: white;
     text-decoration: none;
     padding: 10px 20px;
     text-align: center;
 }
 
-a:hover, a:active {
+#home a:hover, a:active {
     background-color: white;
     color: black;
 }

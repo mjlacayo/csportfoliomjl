@@ -24,48 +24,43 @@
         .white {
             background-color: white;
         }
-        .container > * {
-            display: inline-block;
-            vertical-align: top;
-        }
-        .width {
-            width: 30%;
-        }
+
         .black-border {
             border-style: solid;
             border-width: 2px;
             border-color: black;
             padding: 2px; 
         }
-        .white-background {
-            background-color: white;
+        .color {
+            background-color: #607D8B;
         }
         .bbjoff {
             width: 1%;
         }
+        .funfacts {
+            width: 30%;
+            max-width: 30%;
+            line-height: 20px;
+            left: 33%;
+            position: absolute;
+        }
     </style>
 </head>
     <div>
-        <body background="pictures/material.jpg">
+        <body class="color">
             <ul id="navbar">
-                <li class="black-border white-background"><a href="home.html"><strong>Home</strong></a></li>
-                <li class="black-border white-background"><a href="index.html"><strong>About Me</strong> </a></li>
-                <li class="black-border white-background"><a href="hardware.html"><strong>Hardware</strong></a></li>
-                <li class="black-border white-background"><a href="howtopage.html"><strong>How To</strong></a></li>
-                <li class="black-border white-background"><a href="calc.html"><strong>Calculator</strong></a></li>
-                <li class="black-border white-background"><a href="todo.html"><strong>Todo List</strong></a></li>
-                <li class="black-border white-background"><a href="vind.html"><strong>Vindinium</strong></a></li>
-                <li class="black-border white-background"><a href="bigproject.html"><strong>Big Project</strong></a></li>
+                <li><a href="home.html"><strong>Home</strong></a></li>
+                <li><a href="index.html"><strong>About Me</strong> </a></li>
+                <li><a href="hardware.html"><strong>Hardware</strong></a></li>
+                <li><a href="howtopage.html"><strong>How To</strong></a></li>
+                <li><a href="calc.html"><strong>Calculator</strong></a></li>
+                <li><a href="todo.html"><strong>Todo List</strong></a></li>
+                <li><a href="vind.html"><strong>Vindinium</strong></a></li>
+                <li><a href="bigproject.html"><strong>Big Project</strong></a></li>
             </ul>
         </body>
-
-                <a><img class="smaller-image"src="pictures/pictureofme.jpg" onmouseover="this.src='pictures/bbjoff.png'" onmouseout="this.src='pictures/pictureofme.jpg'"/></a>
-                <!--<img class="smaller-image thin-black-border" src="pictures/pictureofme.jpg"/>-->
-            
-            <!--<img class="bbjoff"src="pictures/bbjoff.png"/>-->
-
-            <!--main bio-->
-            <div class="thin-black-border font-family width font-size white">
+        
+                <div class="thin-black-border funfacts font-size white">
                 <p class="center">My name is Matthew Lacayo, here a few quick facts about my self</p>
                 <ul>
                     <li>I was born on September 4th in 1998</li>
@@ -80,8 +75,15 @@
                     <li>Or listen to music</li>
                 </ul>
             </div>
-        </div>
-</div>
+
+                <a><img class="smaller-image"src="pictures/pictureofme.jpg" onmouseover="this.src='pictures/bbjoff.png'" onmouseout="this.src='pictures/pictureofme.jpg'"/></a>
+                <!--<img class="smaller-image thin-black-border" src="pictures/pictureofme.jpg"/>-->
+            
+            <!--<img class="bbjoff"src="pictures/bbjoff.png"/>-->
+
+            <!--main bio-->
+            
+    </div>
 <!-- command lines for updating site
 git add -A
 git commit -m "update"

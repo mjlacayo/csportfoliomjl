@@ -25,26 +25,35 @@
     .inline {
         display: inline-block;
     }
+    
+    .color {
+            background-color: #607D8B;
+        }
+    .width{
+        width: 35%;
+    }
     </style>
     
 </head>
 
-<body background="pictures/russel.jpg">
+<body class="color">
     
     <script src="calc.js"></script>
     
     <ul id="navbar">
-                <li class="black-border white-background"><a href="home.html"><strong>Home</strong></a></li>
-                <li class="black-border white-background"><a href="index.html"><strong>About Me</strong> </a></li>
-                <li class="black-border white-background"><a href="hardware.html"><strong>Hardware</strong></a></li>
-                <li class="black-border white-background"><a href="howtopage.html"><strong>How To</strong></a></li>
-                <li class="black-border white-background"><a href="calc.html"><strong>Calculator</strong></a></li>
-                <li class="black-border white-background"><a href="todo.html"><strong>Todo List</strong></a></li>
-                <li class="black-border white-background"><a href="vind.html"><strong>Vindinium</strong></a></li>
-                <li class="black-border white-background"><a href="bigproject.html"><strong>Big Project</strong></a></li>
+                <li><a href="home.html"><strong>Home</strong></a></li>
+                <li><a href="index.html"><strong>About Me</strong> </a></li>
+                <li><a href="hardware.html"><strong>Hardware</strong></a></li>
+                <li><a href="howtopage.html"><strong>How To</strong></a></li>
+                <li><a href="calc.html"><strong>Calculator</strong></a></li>
+                <li><a href="todo.html"><strong>Todo List</strong></a></li>
+                <li><a href="vind.html"><strong>Vindinium</strong></a></li>
+                <li><a href="bigproject.html"><strong>Big Project</strong></a></li>
     </ul>
     
-    <p class="black-border white-background">WILL EXPLAIN HOW TO USE CALCULATOR. THIS PAGE IS NOT YET FINISHED.</p>
+    
+<div class="black-border white-background width">
+    <p>To use the square function put the number into the second input box. For example, to find the square root of 9 you would put 9 into the second input box.</p>
     
         
             <input id="num1">
@@ -63,6 +72,7 @@
         <button id="solve">solve</button>
     
         <div id="display"> </div>
+</div>
     <script src="calc.js"></script>
     
 </body>

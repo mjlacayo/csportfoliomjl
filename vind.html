@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Vindinium</title>
+    <link rel="stylesheet" href="navbar.css" type="text/css" />
+    
+    <style>
+    .black-border {
+        border-color: black;
+        border-width: 2px;
+        border-style: solid;
+        padding: 2px;
+        }
+        
+    .white-background {
+        background-color: white;
+        }
+    
+    .padding {
+        padding: 10px;
+    }
+    
+    .inline {
+        display: inline-block;
+    }
+    
+    .color {
+            background-color: #607D8B;
+        }
+    .width{
+        width: 35%;
+    }
+    
+    .center{
+        text-align: center;
+    }
+    
+    .text-color{
+        color: #bbc8ce;
+    }
+    
+    .dropbtn {
+    background-color: #374247;
+    color: #bbc8ce;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+
+    .dropbtn:hover, .dropbtn:focus {
+    background-color: #bbc8ce;
+    color: #374247;
+    }
+
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    color: #374247;
+    }
+
+    .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #bbc8ce;
+    }
+
+    .dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    }
+    
+    .show {display:block;}
+    </style>
+    
+</head>
+
+<body class="color">
+    
+    <script src="calc.js"></script>
+    
+    <ul id="navbar" style="text-align:center">
+                <li><a href="home.html"><strong>Home</strong></a></li>
+                <li><a href="index.html"><strong>About Me</strong> </a></li>
+                <li><a href="hardware.html"><strong>Hardware</strong></a></li>
+                <li><a href="howtopage.html"><strong>How To</strong></a></li>
+                <li><a href="calc.html"><strong>Calculator</strong></a></li>
+                <li><a href="todo.html"><strong>Todo List</strong></a></li>
+                <li><a href="vind.html"><strong>Vindinium</strong></a></li>
+                <li><a href="bigproject.html"><strong>Big Project</strong></a></li>
+    </ul>
+    
+        <center><p class="text-color"><big><u><b>What is Vindinium?</b></u></big></p></center>
+ 
+        <center><img src="pictures/vindinium1.png" style="width:350px"></center>
+
+        <p class="text-color">Vindinium is a turn based game where players design code for a bot that will go up against other players’ bots. The objective of the game is to have the most gold once the total amount of turns has been reached. To get gold, a bot must capture mines that are either unowned or owned by enemy bots. Once a mine has been captured, whoever owns the mine will slowly gain gold. The more mines owned by one bot the faster that bot gains gold. Throughout the game bots can lose health either from being attacked by enemy bots or simply by moving through the map. To regain health, a bot can visit a tavern and pay one gold for a cream soda which will refill their health. For each game the map is randomly generated, it could quite small or quite large.</p>
+    
+    <hr style="border-color:#374247">
+    
+    
+    <div class="dropdown">
+        <button onclick="myFunction()" class="dropbtn">My Bot's Code</button>
+            <div id="myDropdown" class="dropdown-content">
+                <p><pre><code>
+    var Bot = require('bot');
+    var PF = require('pathfinding');
+    //var bot = new Bot('adx5993e', 'training', 'http://vindinium.org'); //Put your bot's code here and change training to Arena when you want to fight others.
+    var bot = new Bot('0d9b3mea', 'arena', 'http://v.summitdevclub.com:9000'); //Put your bot's code here and change training to Arena when you want to fight others.
+    var goDir;
+    var Promise = require('bluebird');
+    Bot.prototype.botBrain = function() {
+        return new Promise(function(resolve, reject) {
+            _this = bot;
+            //////* Write your bot below Here *//////
+            //////* Set `myDir` in the direction you want to go and then bot.goDir is set to myDir at the bottom *////////
+
+            /*                                      *
+             * This Code is global data!            *
+             *                                      */
+
+            // Set myDir to what you want and it will set bot.goDir to that direction at the end.  Unless it is "none"
+            var myDir;
+
+            // This creates the array that stores the data about my bot's x and y positions
+            var myPos = [bot.yourBot.pos.x, bot.yourBot.pos.y];
+
+            //This creates the array that stores the data about enemy bots and differentiates them from my bot 
+            var enemyBots = [];
+            if (bot.yourBot.id != 1) enemyBots.push(bot.bot1);
+            if (bot.yourBot.id != 2) enemyBots.push(bot.bot2);
+            if (bot.yourBot.id != 3) enemyBots.push(bot.bot3);
+            if (bot.yourBot.id != 4) enemyBots.push(bot.bot4);
+
+            // This creates the array that stores data which mines are owned by enemy bots
+            var enemyBotsMines = []
+            enemyBotsMines = enemyBotsMines.concat(enemyBots[0].mines);
+            enemyBotsMines = enemyBotsMines.concat(enemyBots[1].mines);
+            enemyBotsMines = enemyBotsMines.concat(enemyBots[2].mines);
+        
+            /*                                      *
+             * This Code Decides WHAT to do         *
+             *                                      */
+                var task = "none"
+
+            console.log(bot.yourBot.gold, enemyBots[0].gold)
+
+            if (bot.yourBot.gold <= enemyBots[0].gold && bot.yourBot.gold <= enemyBots[1].gold && bot.yourBot.gold <= enemyBots[2].gold){
+                task = "freeMines";
+            }
+        
+            else if (bot.yourBot.gold < enemyBots[0].gold && bot.yourBot.gold < enemyBots[1].gold && bot.yourBot.gold < enemyBots[2].gold){
+                task = "ownedMines";
+            }
+        
+            else if (bot.yourBot.life < 30 && bot.yourBot.gold > 1) {
+                task = "closestTavern"
+            }
+        
+            else {
+                task = "attackBots"
+            }
+        
+        
+            /*                                      *
+             * This Code Determines HOW to do it    *
+             *                                      */
+
+            // This code determines which unowned mine is the closest and sets myDir to those coordiantes
+            if (task === "freeMines") {
+                var closestMine = bot.freeMines[0];
+                for (var i = 0; i < bot.freeMines.length; i++) {
+                    if (bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
+                        closestMine = bot.freeMines[i];
+                    }
+                }
+                console.log("Collecting Free Mine");
+                var myDir = bot.findPath(myPos, closestMine);
+            }
+        
+            //This comment determines which owned mine is the closest and sets myDir to those coordiantes
+            if (task === "ownedMines") {
+                var closestMine = ownedMines[0];
+                for (var i = 0; i < ownedMines.length; i++) {
+                    if (bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, ownedMines[i])) {
+                        closestMine = ownedMines[i];
+                    }
+                }
+                console.log("Collecting Owned Mine");
+                var myDir = bot.findPath(myPos, closestMine);
+            }
+        
+            // This code determines which tavern is the closest and sets myDir to those coordinates
+            if (task === "closestTavern") {
+                var closestTavern = bot.taverns[0];
+                for (var i = 0; i < bot.taverns.length; i++) {
+                    if (bot.findDistance(myPos, closestTavern) > bot.findDistance(myPos, bot.taverns[i])) {
+                        closestTavern = bot.taverns[i];
+                    }
+                }
+                console.log("Going to Tavern");
+                var myDir = bot.findPath(myPos, closestTavern);
+            }
+        
+            // This code finds the x and y position of the closest enemy bot and sets myDir to those values
+            if (task === "attackBots") {
+                var closestBot = enemyBots[0];
+                for (var i = 0; i < enemyBots.length; i++) {
+                    if (bot.findDistance(myPos, closestBot.posArray) > bot.findDistance(myPos, enemyBots[i].posArray)) {
+                        closestBot = enemyBots[i];
+                    }
+                }
+                console.log("Going to closest enemy");
+                var myDir = bot.findPath(myPos, closestBot.posArray);
+            }
+
+
+
+
+            if (task === "none") {
+            console.log("Going Random!");
+            var rand = Math.floor(Math.random() * 4);
+            var dirs = ["north", "south", "east", "west"];
+            myDir = dirs[rand];
+            }
+
+
+
+
+            /*                                                                          *
+             * This Code Sets your direction based on myDir. Change if you want.        */
+
+            bot.goDir = myDir;
+
+            ///////////* DON'T REMOVE ANTYTHING BELOW THIS LINE *//////////////
+            resolve();
+        });
+    }
+    bot.runGame();</code></pre></p>
+            </div>
+            <script src="vind.js"></script>
+    </div>
+
+<hr style="border-color:#374247">
+
+    <center><big><b><u class="text-color"><p class="text-color">What My Bot Does</p></u></b></big></center>
+
+        <p class="text-color">For my bot I decided to code it so that it’s mission would change would change throughout each game it participates in. In the beginning of each match, my bot looks for and captures mines that are not owned by any other players. If there are no free mines, it would then look for mines that are owned by other players. If it’s health hit 30 or less, it would visit the nearest tavern to replenish its health. Last but not least, my bot would also seek out and attack enemy bots if it was not performing any of the aforementioned actions. I set my bot up this way because I felt it was the most logical process. At the beginning of each match, all mines are considered free so it made sense to have my bot seek out and capture those mines. Once any given match has been going for a few minutes, all mines would be owned by a player at this point. So, the next logical step for my bot would be to locate and capture any owned mines. For my bot, I wrote code that would tell my bot to capture mines if a certain variable was true, I will explain this variable in the below section. After mines, I wanted my bot to be able to regain health so I wrote code that told it to go to a tavern to if its health was equal to or less than 30. I chose 30 because I wanted to give my bot enough health to even make it to the tavern. I say enough because a bot’s health is lowered every time it moves on the map. After health, I wanted my bot to have a simple default task if it wasn’t performing any of the specific tasks mentioned above. This simple task was to seek out and eliminate enemy bots. In the below section I will explain the specific code I used to make my bot perform these tasks.</p>
+
+<hr style="border-color:#374247">
+
+    <center><big><b><u class="text-color"><p class="text-color">How My Bot Does What It Does</p></u></b></big></center>
+
+        <p class="text-color">In order to get my bot to perform all the actions mentioned in the previous section, I had to write code that would allow my bot to function the way I wanted it to. Specifically, I used if then statements. This method of coding is quite simple and easy to set up. First, I set up my if statements, one for each of my tasks. The way these statements work is that they are set up using parameters. If these parameters are found to be true, the code would then perform a task connected to the if statement. If the first statement is not found to be true, the next statement would be examined and its parameters would be checked to be true or false. The process is the same until a statement is found to be true. For this method of coding, it is best to have the most specific statement be the first in the list, this statement is called the if statement. Depending on how many statements you have, any statements in between the first and last are called else if statements. The final statement is called the else statement. If a statement is found to be true, a task connected to that statement would then be executed.
+My if statement and the statement it's connected to are located below.
+
+</p> <pre><code>if (bot.yourBot.gold <= enemyBots[0].gold && bot.yourBot.gold <= enemyBots[1].gold && bot.yourBot.gold <= enemyBots[2].gold){
+            task = "freeMines";
+        }
+
+        if (task === "freeMines") {
+            var closestMine = bot.freeMines[0];
+            for (var i = 0; i < bot.freeMines.length; i++) {
+                if (bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, bot.freeMines[i])) {
+                    closestMine = bot.freeMines[i];
+                }
+            }
+            console.log("Collecting Free Mine");
+            var myDir = bot.findPath(myPos, closestMine);
+        }</code></pre>
+        
+        <p class="text-color">For this action, I used the parameter of gold since that is what determines who wins the match. For this action the code is set to check and see if the amount of gold my bot has is less than or equal to the amount of gold each other bot has. Since all bots start with 0 gold, this would allow my bot to start off each match going for mines. If these parameters were found to be true, the code would then look for the closest free mine by comparing my bot's location to the individual location of each mine and send my bot to capture that mine.</p>
+        
+        <p class="text-color">The code for my first else if statement, which is to capture owned mines, is located below.</p>
+        
+       <pre><code>else if (bot.yourBot.gold < enemyBots[0].gold && bot.yourBot.gold < enemyBots[1].gold && bot.yourBot.gold < enemyBots[2].gold){
+            task = "ownedMines";
+        }
+        
+        if (task === "ownedMines") {
+            var closestMine = ownedMines[0];
+            for (var i = 0; i < ownedMines.length; i++) {
+                if (bot.findDistance(myPos, closestMine) > bot.findDistance(myPos, ownedMines[i])) {
+                    closestMine = ownedMines[i];
+                }
+            }
+            console.log("Collecting Owned Mine");
+            var myDir = bot.findPath(myPos, closestMine);
+        }</code></pre>
+       
+        <p class="text-color">This line of code similar to the one from the previous task. The only difference is that my bot's gold has to be less than all of the other bots. This piece of code also uses an array, which is like a list, that stores all the data about what mines are owned by other bots. If this statement were to be executed, the code would compare my bots position to all mines owned by other players and send my bot to the closest owned mine.</p>
+
+        <p class="text-color">The code for my second else if statement is located below.</p>
+        
+        <pre><code>else if (bot.yourBot.life < 30 && bot.yourBot.gold > 1) {
+            task = "closestTavern"
+        }
+        
+        if (task === "closestTavern") {
+            var closestTavern = bot.taverns[0];
+            for (var i = 0; i < bot.taverns.length; i++) {
+                if (bot.findDistance(myPos, closestTavern) > bot.findDistance(myPos, bot.taverns[i])) {
+                    closestTavern = bot.taverns[i];
+                }
+            }
+            console.log("Going to Tavern");
+            var myDir = bot.findPath(myPos, closestTavern);
+        }
+        </code></pre>
+        
+        <p class="text-color">For this task I set it so my bot would travel to a tavern once its health reaches 30 or lower. For this task, my line of code was set to check and see if my bot’s health was equal to or less than 30 as well as my amount of gold was greater than or equal to 1. This is due to the fact that completely restoring a bot’s health costs one gold.
+        
+        <p class="text-color">The code for my else statement is located below.</p>
+        
+        <pre><code>else {
+            task = "attackBots"
+        }
+        
+    
+        if (task === "attackBots") {
+            var closestBot = enemyBots[0];
+            for (var i = 0; i < enemyBots.length; i++) {
+                if (bot.findDistance(myPos, closestBot.posArray) > bot.findDistance(myPos, enemyBots[i].posArray)) {
+                    closestBot = enemyBots[i];
+                }
+            }
+            console.log("Going to closest enemy");
+            var myDir = bot.findPath(myPos, closestBot.posArray);
+        }</code></pre>
+
+        <p class="text-color">The final task my bot was set to do was to seek out and attack other players. If this task was being performed, the code would find the position of the nearest enemy bot and then direct my bot towards that bot. This is the last task in the list, or my else statement, because it is the most basic of the tasks I wanted my bot to fulfill.</p>
+
+<hr style="border-color:#374247">
+
+    <center><big><b><u class="text-color"><p class="text-color">What I Learned About AI </p></u></b></big></center>
+
+        <p class="text-color"> During this project, I learned multiple things. The one thing that stood out the most was that even the simple code used in this project resulted in some mildly advanced AI. This stood out to me because before the project I viewed AI as an extremely complicated idea.</p>
+
+<hr style="border-color:#374247">
+
+    <center><big><b><u class="text-color"><p class="text-color">My Bot</p></u></b></big></center>
+
+        <p class="text-color">When I began this project the only goal I had for my bot was to have a bot that was able to perform three basic tasks. I ended up with a bot that did four basic tasks, so I am glad to say that I met my goal and even did a little more than I initially planned to do.</p>
+
+<hr style="border-color:#374247">
+
+    <center><big><b><u class="text-color"><p class="text-color">Opinion on AI </p></u></b></big></center>
+
+        <p class="text-color">My opinion of AI has remained somewhat the same since before thid project. Before the project I felt that AI was an area that should be the subject of more research. Now, however, I feel as though AI can be either really helpful or really harmful. It ultimately depends on who is wielding the AI. </p>
+
+<hr style="border-color:#374247">
+
+</html>

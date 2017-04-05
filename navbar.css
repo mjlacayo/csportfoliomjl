@@ -1,6 +1,6 @@
 #navbar {
     text-align: left;
-    background-color:black;
+    background-color:#374247;
     
 
 }
@@ -13,13 +13,13 @@
 }
 
 #navbar a:link, a:visited{
-    color: white;
+    color: #bbc8ce;
     text-decoration: none;
     padding: 10px 20px;
     text-align: center;
 }
 
 a:hover, a:active {
-    background-color: white;
-    color: black;
+    background-color: #bbc8ce;
+    color: #374247;
 }
